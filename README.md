@@ -29,7 +29,7 @@
 - [ ] REST API (Bonus)
 
 ## Project Structure
-`
+```
 product-management.zip
 ├── src/
 │   ├── main/
@@ -48,7 +48,7 @@ product-management.zip
 │   │           └── product-form.html
 ├── pom.xml
 └── README.md
-`
+```
 
 ## Code Flow
 ### List Products
