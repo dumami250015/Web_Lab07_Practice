@@ -50,8 +50,8 @@ product-management.zip
 └── README.md
 ```
 
-## Code Flow
-### List Products
+# Code Flow
+## List Products
    1. **User Request**: The user accesses the URL `/products/list`.
    2. **Controller Layer** (`ProductController.java`):
       * The `listProducts` method mapped to `@GetMapping("/list")` is invoked.
@@ -65,7 +65,7 @@ product-management.zip
       * The controller returns `"products/list-products"`.
       * Thymeleaf iterates over the list (`th:each`) and renders the table rows.
 
-### Create Product
+## Create Product
 **Step A: Show Form**
    1. **User Request**: User clicks "Add Button", accessing `/products/showFormForAdd`.
    2. **Controller**: Creates a new `Product` object and adds it to the model.
@@ -81,7 +81,7 @@ product-management.zip
       * Hibernate performs an `INSERT` statement.
    4. **Redirect**: The controller redirects the user back to the list (`redirect:/products/list`).
 
-### Update Product
+## Update Product
 **Step A: Show Form with Data**
    1. **User Request**: User clicks "Update" on a product row (`/products/showFormForUpdate?productId=X`).
    2. **Controller**:
@@ -95,7 +95,7 @@ product-management.zip
    2. **Controller**: The `saveProduct` method is called (same as Create).
    3. **Service**: Because the `Product` object has an `id` (hidden field in the form), `productRepository.save(product)` performs an `UPDATE` instead of an `INSERT`.
 
-### Delete Product
+## Delete Product
    1. **User Request**: User clicks "Delete" on a product row (`/products/delete?productId=X`).
    2. **Controller**:
       * Extracts `productId`.
