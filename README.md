@@ -54,16 +54,16 @@ product-management.zip
 ## List Products
    1. **User Request**: The user accesses the URL `/products/list`.
    2. **Controller Layer** (`ProductController.java`):
-      * The `listProducts` method mapped to `@GetMapping("/list")` is invoked.
-      * It calls `productService.findAll()`.
+      - The `listProducts` method mapped to `@GetMapping("/list")` is invoked.
+      - It calls `productService.findAll()`.
    3. **Service Layer** (`ProductServiceImpl.java`):
-      * The `findAll()` method calls `productRepository.findAllByOrderByNameAsc()`.
+      - The `findAll()` method calls `productRepository.findAllByOrderByNameAsc()`.
    4. **Repository Layer** (`ProductRepository.java`):
-      * The `findAllByOrderByNameAsc()` method executes a JPQL/SQL query to fetch all products sorted by name.
+      - The `findAllByOrderByNameAsc()` method executes a JPQL/SQL query to fetch all products sorted by name.
    5. **View Layer** (`product-list.html`):
-      * The list of products is added to the `Model`.
-      * The controller returns `"products/list-products"`.
-      * Thymeleaf iterates over the list (`th:each`) and renders the table rows.
+      - The list of products is added to the `Model`.
+      - The controller returns `"products/list-products"`.
+      - Thymeleaf iterates over the list (`th:each`) and renders the table rows.
 
 ## Create Product
 **Step A: Show Form**
@@ -74,19 +74,19 @@ product-management.zip
 **Step B: Save Product**
    1. **User Submission**: User fills the form and submits POST to `/products/save`.
    2. Controller:
-      * Accepts the `@ModelAttribute("product")`.
-      * Calls `productService.save(theProduct)`.
+      - Accepts the `@ModelAttribute("product")`.
+      - Calls `productService.save(theProduct)`.
    3. **Service -> Repository**:
-      * The service delegates to `productRepository.save(product)`.
-      * Hibernate performs an `INSERT` statement.
+      - The service delegates to `productRepository.save(product)`.
+      - Hibernate performs an `INSERT` statement.
    4. **Redirect**: The controller redirects the user back to the list (`redirect:/products/list`).
 
 ## Update Product
 **Step A: Show Form with Data**
    1. **User Request**: User clicks "Update" on a product row (`/products/showFormForUpdate?productId=X`).
    2. **Controller**:
-      * Extracts `productId` from the request param.
-      * Calls `productService.findById(theId)`.
+      - Extracts `productId` from the request param.
+      - Calls `productService.findById(theId)`.
    3. **Service -> Repository**: Fetches the existing product from the DB.
    4. **View**: Renders `product-form.html`, but this time the fields are pre-filled with the existing product's data.
 
@@ -98,9 +98,9 @@ product-management.zip
 ## Delete Product
    1. **User Request**: User clicks "Delete" on a product row (`/products/delete?productId=X`).
    2. **Controller**:
-      * Extracts `productId`.
-      * Calls `productService.deleteById(theId)`.
+      - Extracts `productId`.
+      - Calls `productService.deleteById(theId)`.
    3. **Service -> Repository**:
-      * Calls `productRepository.deleteById(theId)`.
-      * Hibernate executes a `DELETE` statement.
+      - Calls `productRepository.deleteById(theId)`.
+      - Hibernate executes a `DELETE` statement.
    4. **Redirect**: The user is redirected back to the product list.
